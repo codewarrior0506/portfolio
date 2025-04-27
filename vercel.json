@@ -1,6 +1,6 @@
 {
   "functions": {
-    "portfolio/*.php": {
+    "/*.php": {
       "runtime": "vercel-php@0.3.0"
     }
   }
