@@ -15,7 +15,7 @@ if ($conn->connect_error) {
 }
 
 // Check if form data is set
-if (isset($_POST['username']) && isset($_POST['email']) && isset($_POST['contact']) && isset($_POST['subject']) && isset($_POST['message'])) {
+if (isset($_POST ['username']) && isset($_POST ['email']) && isset($_POST ['contact']) && isset($_POST ['subject']) && isset($_POST ['message'])) {
     $username = $_POST['username'];
     $email = $_POST['email'];
     $contact = $_POST['contact'];
