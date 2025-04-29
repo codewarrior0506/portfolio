@@ -1,6 +1,4 @@
 <?php
-
-
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -14,27 +12,49 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Check if form data is set
-if (isset($_POST['username']) && isset($_POST['email']) && isset($_POST['contact']) && isset($_POST['subject']) && isset($_POST['message'])) {
-    $username = $_POST['username'];
-    $email = $_POST['email'];
-    $contact = $_POST['contact'];
-    $subject = $_POST['subject'];
-    $message = $_POST['message'];
+// Check if form is submitted and all fields are filled
+if (
+    isset($_POST['username']) && isset($_POST['email']) &&
+    isset($_POST['contact']) && isset($_POST['subject']) &&
+    isset($_POST['message'])
+) {
+    // Sanitize input
+    $username = trim($_POST['username']);
+    $email = trim($_POST['email']);
+    $contact = trim($_POST['contact']);
+    $subject = trim($_POST['subject']);
+    $message = trim($_POST['message']);
 
-    $sql = "INSERT INTO contacts (username, email, contact, subject, message) VALUES ('$username', '$email', '$contact', '$subject', '$message')";
+    // Check if email already exists
+    $check = $conn->prepare("SELECT id FROM contacts WHERE email = ?");
+    $check->bind_param("s", $email);
+    $check->execute();
+    $result = $check->get_result();
 
-    if ($conn->query($sql) === TRUE) {
-        echo "Inserted successfully.";
+    if ($result->num_rows > 0) {
+        echo "This email has already submitted a message.";
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        // Insert new record using prepared statement
+        $stmt = $conn->prepare("INSERT INTO contacts (username, email, contact, subject, message) VALUES (?, ?, ?, ?, ?)");
+        $stmt->bind_param("sssss", $username, $email, $contact, $subject, $message);
+
+        if ($stmt->execute()) {
+            echo "Message sent successfully!";
+        } else {
+            echo "Error inserting data: " . $stmt->error;
+        }
+
+        $stmt->close();
     }
+
+    $check->close();
 } else {
     echo "Please fill all the fields.";
 }
 
 $conn->close();
 ?>
+
 
 
 <html lang="en">
