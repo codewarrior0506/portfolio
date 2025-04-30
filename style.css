@@ -81,7 +81,7 @@ section{
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 5rem;
+    gap: 7rem;
 }
 .home .content{
     display: flex;
@@ -139,7 +139,7 @@ section{
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
+    gap: 2rem;
     margin-bottom: 2rem;
 }
 .home .content .icons i{
@@ -157,8 +157,8 @@ section{
 }
 .home img{
     border-radius: 50%;
-    height: 25rem;
-    width: 25rem;
+    height: 40rem;
+    width: 40rem;
     object-fit: cover;
     box-shadow: 0 0 2.5rem var(--main-color);
 }
@@ -262,7 +262,7 @@ section{
     align-items: center;
     justify-content: center;
     flex-flow: column;
-    min-height: 100vh;
+    min-height: 120vh;
     background-color: var(--second-bg-color);
 }
 
@@ -314,11 +314,11 @@ section{
 }
 .education .timeline-items .timeline-item .timeline-date{
     color: var(--text-color);
-    font-size: 1.7rem;
+    font-size: 2rem;
     font-weight: 600;
 }
 .education .timeline-items .timeline-item .timeline-content{
-    padding: 1rem;
+    padding: 1.3rem;
     width: 35rem;
     border: .2rem solid var(--main-color);
     border-radius: 3rem;
@@ -334,12 +334,12 @@ section{
 }
 
 .education .timeline-items .timeline-item .timeline-content h3{
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     color: var(--text-color);
     margin-bottom: 1rem;
 }
 .education .timeline-items .timeline-item .timeline-content p{
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     color: var(--text-color);
     line-height: 2;
     text-transform: lowercase;
@@ -355,7 +355,7 @@ section{
 }
 .services .heading{
     color: var(--text-color);
-    font-size: 3rem;
+    font-size: 5rem;
     text-align: center;
     margin-bottom: 2rem;
 }
@@ -390,7 +390,7 @@ section{
     font-size: 1.2rem;
     color: var(--text-color);
     text-transform: lowercase;
-    margin-bottom: 1rem;
+    margin-bottom: 1rm;
     line-height: 2;
 }
 .services .box-container .box:hover p,
@@ -418,9 +418,9 @@ section{
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: 4rem;
+    gap: 5rem;
     width: 100%;
-    margin: 2rem 0;
+    margin: 3rem 0;
 }
 .testimonials .box-container .box img{
     height: 8rem;
@@ -503,7 +503,7 @@ section{
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    width: 49%;
+    width: 45%;
 }
 
 .contact .form-container form .inputs .input,
